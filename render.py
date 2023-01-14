@@ -74,9 +74,9 @@ while run:
         if event.type == pygame.KEYDOWN:
             user.keyDown(event)
             if event.key == pygame.K_SPACE:
-                user.ability.xPos, user.ability.yPos = user.xPos, user.yPos
-                user.ability.setDirection(user.direction)
-                user.ability.shootShot()
+                user.energy.xPos, user.energy.yPos = user.xPos, user.yPos
+                user.energy.setDirection(user.direction)
+                user.energy.shootShot()
         if event.type == pygame.KEYUP:
             user.keyUp(event)
         else:
@@ -93,10 +93,10 @@ while run:
             mapChanger = len(maps) - 1
         else:
             mapChanger -= 1
-    if user.ability.shootIMG:
-        user.ability.shootShot()
-        user.ability.movementShot()
-        window.blit(user.ability.shootIMG, (user.ability.xPos, user.ability.yPos))
+    if user.energy.shootIMG:
+        user.energy.shootShot()
+        user.energy.movementShot()
+        window.blit(user.energy.shootIMG, (user.energy.xPos, user.energy.yPos))
     for everyPos in blockLists[mapChanger]:
         # print(user.xPos, user.yPos)
         treePos = {"x1,x2": (
